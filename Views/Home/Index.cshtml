@@ -1,18 +1,14 @@
 ﻿@model YouTubeConvertor2._0.Models.VideoItem;
 
-@{
-    ViewData["Title"] = "Home Page";
-}
-
 <div>
-    <h1 class="display-4 text-center">Youtube Convertor 2.0</h1>
+    <h1 class="display-4 text-center text-danger">Youtube Convertor 2.0</h1>
 
-    <form id="downloadForm" asp-controller="Youtube" asp-action="ConvertAudio" method="post">
+    <form id="downloadForm" class="mt-5" asp-controller="Youtube" asp-action="ConvertAudio" method="post">
         <div class="text-center">
             <input class="form-control" type="text" id="url" name="url" required />
         </div>
-        <div class="m-3">
-            <button id="ConvertBtn" class="btn btn-primary" type="submit">Convert</button>
+        <div class="float-end mt-4">
+            <button id="ConvertBtn" class="btn btn-danger" type="submit">Convert</button>
         </div>
     </form>
 </div>
@@ -21,13 +17,13 @@
 {
     <div class="row d-flex justify-content-center mt-5">
         <div class="col-5">
-            <div class="card">
+            <div class="card text-white mb-3" style="background-color: #2d3339">
                 <img class="card-img-top" src="@Model.ThumbnailUrl" alt="Thumbnail" />
                 <div class="card-body">
                     <h5 class="card-title">@Html.DisplayFor(modelItem => Model.Title)</h5>
                     <p class="card-text">@Html.DisplayFor(modelItem => Model.Artist)</p>
                     <p class="card-text">@Html.DisplayFor(modelItem => Model.Duriation)</p>
-                    <a class="btn btn-primary" href="/Youtube/DownloadFile?title=@Model.Title">Download</a>
+                    <a class="btn btn-danger" href="/Youtube/DownloadFile?title=@Model.Title">Download</a>
                 </div>
             </div>
         </div>
